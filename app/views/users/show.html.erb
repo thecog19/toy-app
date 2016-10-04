@@ -10,5 +10,16 @@
   <%= @user.email %>
 </p>
 
+<p>
+  <strong>Last Post:</strong>
+  <%= 
+  begin
+      @user.microposts.last.content 
+  rescue NoMethodError
+    "no such post"
+  end%>
+</p>
+
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
